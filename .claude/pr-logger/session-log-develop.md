@@ -64,3 +64,7 @@ public으로 변경했고, /plugin marketplace add freegrow-enterprise/freegrow-
 
 https://github.com/freegrowenterprise/freegrow-agents 여기에 만들어 뒀어. 
 
+## [2026-01-06 14:39:08] 질문
+
+ Error: Invalid schema: owner: Required 이제는 이런 에러 생겨. 
+

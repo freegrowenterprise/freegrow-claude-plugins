@@ -1,14 +1,14 @@
 {
   "name": "freegrow-agents",
-  "description": "Freegrow 내부 개발자용 Claude Code 플러그인 마켓플레이스",
-  "version": "1.0.0",
-  "author": {
+  "owner": {
     "name": "Freegrow Enterprise",
-    "email": "dev@freegrow.co.kr"
+    "email": "dev@freegrow.co.kr",
+    "url": "https://github.com/freegrowenterprise"
   },
-  "repository": "freegrowenterprise/freegrow-agents",
-  "license": "PROPRIETARY",
-  "commands": "./commands/",
+  "metadata": {
+    "description": "Freegrow 내부 개발자용 Claude Code 플러그인 마켓플레이스",
+    "version": "1.0.0"
+  },
   "plugins": [
     {
       "name": "arm-cortex-microcontrollers",
