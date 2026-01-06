@@ -1,0 +1,13 @@
+{
+  "name": "code-review-ai",
+  "version": "1.0.0",
+  "description": "AI 기반 코드 리뷰, 아키텍처 리뷰 전문 에이전트",
+  "author": {
+    "name": "Freegrow Enterprise",
+    "email": "dev@freegrow.co.kr"
+  },
+  "license": "PROPRIETARY",
+  "keywords": ["code-review", "architecture", "quality", "best-practices"],
+  "agents": "./agents/",
+  "commands": "./commands/"
+}

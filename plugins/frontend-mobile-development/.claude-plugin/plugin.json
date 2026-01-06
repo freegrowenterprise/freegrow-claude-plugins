@@ -1,0 +1,14 @@
+{
+  "name": "frontend-mobile-development",
+  "version": "1.0.0",
+  "description": "프론트엔드 및 모바일 앱 개발 전문 에이전트",
+  "author": {
+    "name": "Freegrow Enterprise",
+    "email": "dev@freegrow.co.kr"
+  },
+  "license": "PROPRIETARY",
+  "keywords": ["frontend", "mobile", "react", "react-native", "flutter"],
+  "agents": "./agents/",
+  "commands": "./commands/",
+  "skills": "./skills/"
+}
