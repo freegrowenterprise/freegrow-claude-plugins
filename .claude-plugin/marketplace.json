@@ -6,7 +6,7 @@
     "name": "Freegrow Enterprise",
     "email": "dev@freegrow.co.kr"
   },
-  "repository": "freegrow-enterprise/freegrow-agents",
+  "repository": "freegrowenterprise/freegrow-agents",
   "license": "PROPRIETARY",
   "commands": "./commands/",
   "plugins": [

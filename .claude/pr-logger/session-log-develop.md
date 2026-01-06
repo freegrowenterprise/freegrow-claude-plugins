@@ -18,3 +18,49 @@ https://github.com/wshobson/agents 이 프로젝트 처럼 /plugin marketplace a
 
 커밋해. 
 
+## [2026-01-06 14:01:44] 질문
+
+Error: Failed to clone marketplace repository: SSH authentication failed. Please ensure your SSH keys are configured for GitHub, or use an HTTPS URL instead.
+
+     Original error: '/Users/mingwanchoi/.claude/plugins/marketplaces/freegrow-enterprise-freegrow-agents'에 복제합니다...
+     git@github.com: Permission denied (publickey).
+     fatal: 리모트 저장소에서 읽을 수 없습니다
+
+     올바른 접근 권한이 있는지, 그리고 저장소가 있는지
+     확인하십시오. 혹시 private 저장소에서는 사용 못해? 
+
+## [2026-01-06 14:23:08] 질문
+
+SSH 키 설정은 어떻게 하는데? 
+
+## [2026-01-06 14:24:30] 질문
+
+SSH도 매뉴얼로 만들어서 사용하면 돼? 
+
+## [2026-01-06 14:26:02] 질문
+
+만들어봐. 그리고 SSH 등록하는 방법을 README에 추가해. 
+
+## [2026-01-06 14:35:41] 질문
+
+public으로 변경했고, /plugin marketplace add freegrow-enterprise/freegrow-agents 이 명령어 입력하니까 Error: Failed to clone marketplace repository: SSH authentication failed. Please ensure your SSH keys are configured for GitHub, or use an HTTPS URL instead.
+
+     Original error: '/Users/mingwanchoi/.claude/plugins/marketplaces/freegrow-enterprise-freegrow-agents'에 복제합니다...
+     git@github.com: Permission denied (publickey).
+     fatal: 리모트 저장소에서 읽을 수 없습니다
+
+     올바른 접근 권한이 있는지, 그리고 저장소가 있는지
+     확인하십시오. 이렇게 에러 떠. 
+
+## [2026-01-06 14:36:14] 질문
+
+내 개인 repository에 접근할때는 잘 되던데? 
+
+## [2026-01-06 14:36:51] 질문
+
+근데 https://github.com/wshobson/agents 이런 프로젝트는 SSH 상관없이 바로 사용할 수 있잖아. 
+
+## [2026-01-06 14:37:41] 질문
+
+https://github.com/freegrowenterprise/freegrow-agents 여기에 만들어 뒀어. 
+

@@ -25,7 +25,7 @@ Freegrow Enterprise 플러그인을 설치합니다.
 
 ### 마켓플레이스 등록 (최초 1회)
 ```
-/plugin marketplace add freegrow-enterprise/freegrow-agents
+/plugin marketplace add freegrowenterprise/freegrow-agents
 ```
 
 ### 개별 플러그인 설치
