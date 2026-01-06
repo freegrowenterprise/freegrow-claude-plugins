@@ -88,3 +88,16 @@ https://github.com/freegrowenterprise/freegrow-agents 여기에 만들어 뒀어
  ✔ arm-cortex-microcontrollers (installed) · 0 installs                                                                                                                      │
 │     ARM Cortex 마이크로컨트롤러 전문 에이전트 이렇게 설치했는데, 0 installs 라고 뜨고, plugin에 아무것도 안떠.
 
+## [2026-01-06 15:28:32] 질문
+
+마켓플레이스를 삭제하고 다시 설치했는데, 기존 플러그인이 계속 깔려있어. 해당 플러그인 어떻게 지워?  
+
+## [2026-01-06 15:28:55] 질문
+
+심지어 installed 된 목록에서는 안나와. 
+
+## [2026-01-06 15:30:27] 질문
+
+다시 설치했는데도, │ ❯ ✔ arm-cortex-microcontrollers (installed) · 0 installs                                                                                                                      │
+│     ARM Cortex 마이크로컨트롤러 전문 에이전트 · v1.0.0 이렇게 표시돼. 심지어 installed 목록에는 안나와. 
+
