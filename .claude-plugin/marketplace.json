@@ -1,0 +1,74 @@
+{
+  "name": "freegrow-agents",
+  "description": "Freegrow 내부 개발자용 Claude Code 플러그인 마켓플레이스",
+  "version": "1.0.0",
+  "author": {
+    "name": "Freegrow Enterprise",
+    "email": "dev@freegrow.co.kr"
+  },
+  "repository": "freegrow-enterprise/freegrow-agents",
+  "license": "PROPRIETARY",
+  "commands": "./commands/",
+  "plugins": [
+    {
+      "name": "arm-cortex-microcontrollers",
+      "source": "./plugins/arm-cortex-microcontrollers",
+      "description": "ARM Cortex 마이크로컨트롤러 전문 에이전트",
+      "keywords": ["arm", "cortex", "mcu", "firmware", "embedded"]
+    },
+    {
+      "name": "backend-development",
+      "source": "./plugins/backend-development",
+      "description": "백엔드 아키텍처, Event Sourcing, GraphQL, TDD 전문 에이전트",
+      "keywords": ["backend", "api", "graphql", "event-sourcing", "temporal"]
+    },
+    {
+      "name": "cloud-infrastructure",
+      "source": "./plugins/cloud-infrastructure",
+      "description": "클라우드 아키텍처, Kubernetes, Terraform, 네트워크 전문 에이전트",
+      "keywords": ["cloud", "aws", "kubernetes", "terraform", "devops"]
+    },
+    {
+      "name": "code-documentation",
+      "source": "./plugins/code-documentation",
+      "description": "코드 문서화, 기술 문서 작성 전문 에이전트",
+      "keywords": ["documentation", "docs", "technical-writing"]
+    },
+    {
+      "name": "code-refactoring",
+      "source": "./plugins/code-refactoring",
+      "description": "코드 리팩토링, 레거시 모더나이제이션 전문 에이전트",
+      "keywords": ["refactoring", "legacy", "clean-code"]
+    },
+    {
+      "name": "code-review-ai",
+      "source": "./plugins/code-review-ai",
+      "description": "AI 기반 코드 리뷰, 아키텍처 리뷰 전문 에이전트",
+      "keywords": ["code-review", "quality", "security"]
+    },
+    {
+      "name": "embedded-development",
+      "source": "./plugins/embedded-development",
+      "description": "임베디드 개발, RTOS, ESP32, nRF BLE, Linux 전문 에이전트",
+      "keywords": ["embedded", "rtos", "esp32", "ble", "iot"]
+    },
+    {
+      "name": "frontend-mobile-development",
+      "source": "./plugins/frontend-mobile-development",
+      "description": "프론트엔드 및 모바일 앱 개발 전문 에이전트",
+      "keywords": ["frontend", "react", "nextjs", "react-native"]
+    },
+    {
+      "name": "git-pr-workflows",
+      "source": "./plugins/git-pr-workflows",
+      "description": "Git 워크플로우, PR 관리 전문 에이전트",
+      "keywords": ["git", "github", "pr", "workflow"]
+    },
+    {
+      "name": "multi-platform-apps",
+      "source": "./plugins/multi-platform-apps",
+      "description": "멀티플랫폼 앱 개발 (Flutter, iOS, React Native) 전문 에이전트",
+      "keywords": ["flutter", "ios", "cross-platform", "mobile"]
+    }
+  ]
+}
