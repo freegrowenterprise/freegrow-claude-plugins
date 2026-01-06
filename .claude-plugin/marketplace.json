@@ -139,6 +139,13 @@
         "./agents/nrf-ble-expert.md",
         "./agents/rtos-expert.md"
       ],
+      "commands": [
+        "./commands/emb.md",
+        "./commands/rtos.md",
+        "./commands/esp.md",
+        "./commands/ble.md",
+        "./commands/elinux.md"
+      ],
       "skills": [
         "./skills/ble-development-patterns",
         "./skills/embedded-build-systems",
