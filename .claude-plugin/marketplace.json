@@ -194,13 +194,12 @@
     {
       "name": "multi-platform-apps",
       "source": "./plugins/multi-platform-apps",
-      "description": "멀티플랫폼 앱 개발 (Flutter, iOS, React Native) 전문 에이전트",
+      "description": "멀티플랫폼 앱 개발 (iOS, React Native) 전문 에이전트",
       "version": "1.0.0",
       "license": "PROPRIETARY",
-      "keywords": ["flutter", "ios", "cross-platform", "mobile"],
+      "keywords": ["ios", "cross-platform", "mobile"],
       "agents": [
         "./agents/backend-architect.md",
-        "./agents/flutter-expert.md",
         "./agents/frontend-developer.md",
         "./agents/ios-developer.md",
         "./agents/mobile-developer.md",
@@ -208,6 +207,17 @@
       ],
       "commands": [
         "./commands/multi-platform.md"
+      ]
+    },
+    {
+      "name": "flutter-development",
+      "source": "./plugins/flutter-development",
+      "description": "Flutter 클린 아키텍처 + Riverpod 3.0 기반 앱 개발 전문 에이전트",
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["flutter", "dart", "riverpod", "clean-architecture", "mobile"],
+      "agents": [
+        "./agents/flutter-expert.md"
       ],
       "skills": [
         "./skills/flutter-architecture",
