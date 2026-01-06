@@ -68,3 +68,23 @@ https://github.com/freegrowenterprise/freegrow-agents 여기에 만들어 뒀어
 
  Error: Invalid schema: owner: Required 이제는 이런 에러 생겨. 
 
+## [2026-01-06 14:40:18] 질문
+
+근데 저장소 url 문제였으면 다시 private로 변경하면 되는거 아니야? 
+
+## [2026-01-06 14:41:58] 질문
+
+ Error: Failed to clone marketplace repository: SSH authentication failed. Please ensure your SSH keys are configured for GitHub, or use an HTTPS URL instead.
+
+     Original error: '/Users/mingwanchoi/.claude/plugins/marketplaces/freegrowenterprise-freegrow-agents'에 복제합니다...
+     git@github.com: Permission denied (publickey).
+     fatal: 리모트 저장소에서 읽을 수 없습니다
+
+     올바른 접근 권한이 있는지, 그리고 저장소가 있는지
+     확인하십시오. 이렇게 뜨는데, SSH를 설정해야하는거지? 
+
+## [2026-01-06 15:11:40] 질문
+
+ ✔ arm-cortex-microcontrollers (installed) · 0 installs                                                                                                                      │
+│     ARM Cortex 마이크로컨트롤러 전문 에이전트 이렇게 설치했는데, 0 installs 라고 뜨고, plugin에 아무것도 안떠.
+

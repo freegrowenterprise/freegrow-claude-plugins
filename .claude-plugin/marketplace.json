@@ -14,61 +14,200 @@
       "name": "arm-cortex-microcontrollers",
       "source": "./plugins/arm-cortex-microcontrollers",
       "description": "ARM Cortex 마이크로컨트롤러 전문 에이전트",
-      "keywords": ["arm", "cortex", "mcu", "firmware", "embedded"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["arm", "cortex", "mcu", "firmware", "embedded"],
+      "agents": [
+        "./agents/arm-cortex-expert.md"
+      ]
     },
     {
       "name": "backend-development",
       "source": "./plugins/backend-development",
       "description": "백엔드 아키텍처, Event Sourcing, GraphQL, TDD 전문 에이전트",
-      "keywords": ["backend", "api", "graphql", "event-sourcing", "temporal"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["backend", "api", "graphql", "event-sourcing", "temporal"],
+      "agents": [
+        "./agents/backend-architect.md",
+        "./agents/event-sourcing-architect.md",
+        "./agents/graphql-architect.md",
+        "./agents/tdd-orchestrator.md",
+        "./agents/temporal-python-pro.md"
+      ],
+      "commands": [
+        "./commands/feature-development.md"
+      ],
+      "skills": [
+        "./skills/api-design-principles",
+        "./skills/architecture-patterns",
+        "./skills/cqrs-implementation",
+        "./skills/event-store-design",
+        "./skills/microservices-patterns",
+        "./skills/projection-patterns",
+        "./skills/saga-orchestration",
+        "./skills/temporal-python-testing",
+        "./skills/workflow-orchestration-patterns"
+      ]
     },
     {
       "name": "cloud-infrastructure",
       "source": "./plugins/cloud-infrastructure",
       "description": "클라우드 아키텍처, Kubernetes, Terraform, 네트워크 전문 에이전트",
-      "keywords": ["cloud", "aws", "kubernetes", "terraform", "devops"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["cloud", "aws", "kubernetes", "terraform", "devops"],
+      "agents": [
+        "./agents/cloud-architect.md",
+        "./agents/deployment-engineer.md",
+        "./agents/hybrid-cloud-architect.md",
+        "./agents/kubernetes-architect.md",
+        "./agents/network-engineer.md",
+        "./agents/service-mesh-expert.md",
+        "./agents/terraform-specialist.md"
+      ],
+      "skills": [
+        "./skills/cost-optimization",
+        "./skills/hybrid-cloud-networking",
+        "./skills/istio-traffic-management",
+        "./skills/linkerd-patterns",
+        "./skills/mtls-configuration",
+        "./skills/multi-cloud-architecture",
+        "./skills/service-mesh-observability",
+        "./skills/terraform-module-library"
+      ]
     },
     {
       "name": "code-documentation",
       "source": "./plugins/code-documentation",
       "description": "코드 문서화, 기술 문서 작성 전문 에이전트",
-      "keywords": ["documentation", "docs", "technical-writing"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["documentation", "docs", "technical-writing"],
+      "agents": [
+        "./agents/code-reviewer.md",
+        "./agents/docs-architect.md",
+        "./agents/tutorial-engineer.md"
+      ],
+      "commands": [
+        "./commands/code-explain.md",
+        "./commands/doc-generate.md"
+      ]
     },
     {
       "name": "code-refactoring",
       "source": "./plugins/code-refactoring",
       "description": "코드 리팩토링, 레거시 모더나이제이션 전문 에이전트",
-      "keywords": ["refactoring", "legacy", "clean-code"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["refactoring", "legacy", "clean-code"],
+      "agents": [
+        "./agents/code-reviewer.md",
+        "./agents/legacy-modernizer.md"
+      ],
+      "commands": [
+        "./commands/context-restore.md",
+        "./commands/refactor-clean.md",
+        "./commands/tech-debt.md"
+      ]
     },
     {
       "name": "code-review-ai",
       "source": "./plugins/code-review-ai",
       "description": "AI 기반 코드 리뷰, 아키텍처 리뷰 전문 에이전트",
-      "keywords": ["code-review", "quality", "security"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["code-review", "quality", "security"],
+      "agents": [
+        "./agents/architect-review.md"
+      ],
+      "commands": [
+        "./commands/ai-review.md"
+      ]
     },
     {
       "name": "embedded-development",
       "source": "./plugins/embedded-development",
       "description": "임베디드 개발, RTOS, ESP32, nRF BLE, Linux 전문 에이전트",
-      "keywords": ["embedded", "rtos", "esp32", "ble", "iot"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["embedded", "rtos", "esp32", "ble", "iot"],
+      "agents": [
+        "./agents/embedded-architect.md",
+        "./agents/embedded-linux-expert.md",
+        "./agents/esp32-iot-expert.md",
+        "./agents/nrf-ble-expert.md",
+        "./agents/rtos-expert.md"
+      ],
+      "skills": [
+        "./skills/ble-development-patterns",
+        "./skills/embedded-build-systems",
+        "./skills/embedded-protocols",
+        "./skills/low-power-design",
+        "./skills/rtos-patterns"
+      ]
     },
     {
       "name": "frontend-mobile-development",
       "source": "./plugins/frontend-mobile-development",
       "description": "프론트엔드 및 모바일 앱 개발 전문 에이전트",
-      "keywords": ["frontend", "react", "nextjs", "react-native"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["frontend", "react", "nextjs", "react-native"],
+      "agents": [
+        "./agents/frontend-developer.md",
+        "./agents/mobile-developer.md"
+      ],
+      "commands": [
+        "./commands/component-scaffold.md"
+      ],
+      "skills": [
+        "./skills/nextjs-app-router-patterns",
+        "./skills/react-native-architecture",
+        "./skills/react-state-management",
+        "./skills/tailwind-design-system"
+      ]
     },
     {
       "name": "git-pr-workflows",
       "source": "./plugins/git-pr-workflows",
       "description": "Git 워크플로우, PR 관리 전문 에이전트",
-      "keywords": ["git", "github", "pr", "workflow"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["git", "github", "pr", "workflow"],
+      "agents": [
+        "./agents/code-reviewer.md"
+      ],
+      "commands": [
+        "./commands/git-workflow.md",
+        "./commands/onboard.md",
+        "./commands/pr-enhance.md"
+      ]
     },
     {
       "name": "multi-platform-apps",
       "source": "./plugins/multi-platform-apps",
       "description": "멀티플랫폼 앱 개발 (Flutter, iOS, React Native) 전문 에이전트",
-      "keywords": ["flutter", "ios", "cross-platform", "mobile"]
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["flutter", "ios", "cross-platform", "mobile"],
+      "agents": [
+        "./agents/backend-architect.md",
+        "./agents/flutter-expert.md",
+        "./agents/frontend-developer.md",
+        "./agents/ios-developer.md",
+        "./agents/mobile-developer.md",
+        "./agents/ui-ux-designer.md"
+      ],
+      "commands": [
+        "./commands/multi-platform.md"
+      ],
+      "skills": [
+        "./skills/flutter-architecture",
+        "./skills/flutter-platform-channels",
+        "./skills/flutter-state-management",
+        "./skills/flutter-testing-patterns"
+      ]
     }
   ]
 }
