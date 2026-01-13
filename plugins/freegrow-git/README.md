@@ -187,7 +187,7 @@ Firebase Auth를 활용한 사용자 인증 기능을 구현했습니다...
 - 커밋 히스토리 분석하여 타입 결정
 - Development Log 자동 정리 (커밋 목록, 변경 파일, 작업 요약)
 - 푸시 안된 커밋 자동 푸시
-- Assignee 자동 설정 (`MMMIIIN`)
+- Assignee 자동 설정 (현재 로그인된 사용자)
 
 ---
 
@@ -253,7 +253,7 @@ feature/이슈번호-설명
 
 - **기본 브랜치**: `develop` (main 아님)
 - **이슈 번호 필수**: 모든 커밋에 이슈 번호 포함
-- **Assignee**: 자동으로 `MMMIIIN` 설정
+- **Assignee**: 현재 로그인된 사용자 (`@me`)
 - **PR 로그**: `.claude/pr-logger/` 파일 자동 포함
 
 ---

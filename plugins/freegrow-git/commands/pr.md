@@ -113,7 +113,7 @@ gh pr create \
   --base develop \
   --title "[타입] PR 제목" \
   --body "PR 본문" \
-  --assignee MMMIIIN
+  --assignee @me
 ```
 
 ### 8. 결과 출력
@@ -138,6 +138,6 @@ URL: https://github.com/owner/repo/pull/5
 ## 주의사항
 
 - 기본 브랜치는 `develop`
-- Assignee 자동 설정: `MMMIIIN`
+- Assignee 자동 설정: 현재 로그인된 사용자 (`@me`)
 - Development Log는 커밋 분석으로 자동 생성
 - 푸시되지 않은 커밋이 있으면 먼저 푸시

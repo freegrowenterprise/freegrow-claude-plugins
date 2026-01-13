@@ -48,8 +48,10 @@ gh issue create \
 
 ## 📝 todo
 - [ ] 작업 항목" \
-  --assignee MMMIIIN
+  --assignee @me
 ```
+
+> `@me`는 현재 GitHub CLI에 로그인된 사용자를 의미합니다.
 
 ### 4. 이슈 번호 추출
 
@@ -113,6 +115,6 @@ URL: https://github.com/owner/repo/issues/3
 ## 주의사항
 
 - develop 브랜치에서 시작
-- Assignee 자동 설정: `MMMIIIN`
+- Assignee 자동 설정: 현재 로그인된 사용자 (`@me`)
 - 이슈 생성 실패 시 브랜치 생성 안함
 - 이미 같은 브랜치가 있으면 경고

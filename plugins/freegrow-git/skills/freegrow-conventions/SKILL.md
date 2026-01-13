@@ -166,7 +166,7 @@ feature/이슈번호-간단한-설명
 
 ## GitHub 규칙
 
-- **Assignee**: 항상 `MMMIIIN`으로 설정
+- **Assignee**: 현재 로그인된 사용자 (`@me`)
 - **기본 브랜치**: `develop` (main 아님)
 - **커밋 시**: `.claude/pr-logger/session-log-*.md` 파일 포함
 
