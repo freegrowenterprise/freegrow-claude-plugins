@@ -225,6 +225,22 @@
         "./skills/flutter-state-management",
         "./skills/flutter-testing-patterns"
       ]
+    },
+    {
+      "name": "freegrow-git",
+      "source": "./plugins/freegrow-git",
+      "description": "Freegrow 팀 전용 Git 워크플로우 자동화 - 커밋, 브랜치, 이슈, PR 형식 통일",
+      "version": "1.0.0",
+      "license": "PROPRIETARY",
+      "keywords": ["git", "workflow", "commit", "pr", "freegrow"],
+      "commands": [
+        "./commands/start.md",
+        "./commands/com.md",
+        "./commands/pr.md"
+      ],
+      "skills": [
+        "./skills/freegrow-conventions"
+      ]
     }
   ]
 }
