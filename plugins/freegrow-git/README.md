@@ -44,23 +44,24 @@ Freegrow 팀 전용 Git 워크플로우 자동화 플러그인입니다. 커밋,
 
 **사용법:**
 ```bash
-# 대화형 (타입, 제목 순차 입력)
-/freegrow-git:start
+# 작업 내용만 입력 (타입 자동 판단)
+/freegrow-git:start 새 기능 개발
+/freegrow-git:start 로그인 버그 수정      # → [FIX] 자동 판단
+/freegrow-git:start README 문서 업데이트  # → [DOCS] 자동 판단
 
-# 직접 입력
+# 타입 직접 지정 (선택)
 /freegrow-git:start [FEAT] 사용자 인증 기능
-/freegrow-git:start feat 로그인 구현
 ```
 
-**타입 종류:**
-| 타입 | 설명 |
-|------|------|
-| `[FEAT]` / `feat` | 새로운 기능 |
-| `[FIX]` / `fix` | 버그 수정 |
-| `[DOCS]` / `docs` | 문서 변경 |
-| `[REFACTOR]` / `refactor` | 리팩토링 |
-| `[CHORE]` / `chore` | 빌드, 설정 변경 |
-| `[TEST]` / `test` | 테스트 추가/수정 |
+**타입 자동 판단 규칙:**
+| 키워드 | 타입 |
+|--------|------|
+| `fix`, `bug`, `수정`, `버그`, `오류` | `[FIX]` |
+| `docs`, `readme`, `문서` | `[DOCS]` |
+| `refactor`, `리팩`, `개선` | `[REFACTOR]` |
+| `chore`, `설정`, `빌드` | `[CHORE]` |
+| `test`, `테스트` | `[TEST]` |
+| 그 외 | `[FEAT]` (기본값) |
 
 **결과:**
 ```
