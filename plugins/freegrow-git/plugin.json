@@ -1,0 +1,10 @@
+{
+  "name": "freegrow-git",
+  "description": "Freegrow 팀 전용 Git 워크플로우 자동화 - 커밋, 브랜치, 이슈, PR 형식 통일",
+  "version": "1.0.0",
+  "author": {
+    "name": "Freegrow Enterprise"
+  },
+  "commands": ["./commands/"],
+  "skills": ["./skills/"]
+}
