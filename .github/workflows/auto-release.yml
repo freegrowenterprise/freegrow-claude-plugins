@@ -20,22 +20,15 @@ jobs:
       - name: Get current version
         id: version
         run: |
-          # plugin.json에서 버전 읽기
+          # marketplace.json에서 버전 읽기
           CURRENT_VERSION=$(cat .claude-plugin/marketplace.json | python3 -c "import sys, json; print(json.load(sys.stdin)['metadata']['version'])")
-          echo "version=v${CURRENT_VERSION}" >> $GITHUB_OUTPUT
-          echo "Current version: v${CURRENT_VERSION}"
-
-      - name: Check if tag exists
-        id: check_tag
-        run: |
-          if git rev-parse "${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
+          # 현재 시간 (YYMMDDHHmm 형식, KST)
+          TIMESTAMP=$(TZ='Asia/Seoul' date +%y%m%d%H%M)
+          TAG_NAME="v${CURRENT_VERSION}.${TIMESTAMP}"
+          echo "version=${TAG_NAME}" >> $GITHUB_OUTPUT
+          echo "Current version: ${TAG_NAME}"
 
       - name: Generate release notes
-        if: steps.check_tag.outputs.exists == 'false'
         id: notes
         run: |
           # 이전 태그부터 현재까지의 커밋 로그
@@ -53,11 +46,10 @@ jobs:
           echo "$COMMITS" >> release_notes.md
 
       - name: Create Release
-        if: steps.check_tag.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.version }}
-          name: Release ${{ steps.version.outputs.version }}
+          name: ${{ steps.version.outputs.version }}
           body_path: release_notes.md
           draft: false
           prerelease: false
