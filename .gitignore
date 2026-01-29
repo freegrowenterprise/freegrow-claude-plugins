@@ -17,3 +17,6 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# PR Logger
+.claude/pr-logger/

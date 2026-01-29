@@ -9,7 +9,7 @@ Freegrow Enterprise 마켓플레이스 초기 설정을 안내합니다.
 ## 1단계: 마켓플레이스 등록
 
 ```
-/plugin marketplace add freegrowenterprise/freegrow-agents
+/plugin marketplace add freegrowenterprise/freegrow-claude-plugins
 ```
 
 ## 2단계: 팀 설정 (.claude/settings.json)
@@ -19,7 +19,7 @@ Freegrow Enterprise 마켓플레이스 초기 설정을 안내합니다.
 ```json
 {
   "extraKnownMarketplaces": [
-    "freegrowenterprise/freegrow-agents"
+    "freegrowenterprise/freegrow-claude-plugins"
   ]
 }
 ```
