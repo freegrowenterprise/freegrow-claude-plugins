@@ -7,7 +7,7 @@ Freegrow 내부 개발자용 Claude Code 플러그인 마켓플레이스입니�
 ### 마켓플레이스 등록
 
 ```bash
-/plugin marketplace add freegrowenterprise/freegrow-agents
+/plugin marketplace add freegrowenterprise/freegrow-claude-plugins
 ```
 
 ### 개별 플러그인 설치
