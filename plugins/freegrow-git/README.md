@@ -13,10 +13,13 @@ Freegrow 팀 전용 Git 워크플로우 자동화 플러그인입니다. 커밋,
 | 커맨드 | 설명 |
 |--------|------|
 | `/freegrow-git:start` | 이슈 생성 + 브랜치 생성 (통합) |
+| `/freegrow-git:worktree` | 이슈 생성 + 워크트리(격리 디렉토리) 생성 |
 | `/freegrow-git:com` | Freegrow 형식 커밋 |
 | `/freegrow-git:pr` | PR 생성 + Development Log 자동 정리 |
 
 ## 워크플로우
+
+### 일반 작업 (`/start`)
 
 ```
 1. /start "[FEAT] 기능명"
@@ -32,6 +35,22 @@ Freegrow 팀 전용 Git 워크플로우 자동화 플러그인입니다. 커밋,
 4. /pr
       ↓
    PR 생성 (Development Log 자동 정리)
+```
+
+### 병렬 작업 (`/worktree`)
+
+```
+1. /worktree "[FEAT] 기능명"
+      ↓
+   이슈 #3 생성 + .claude/worktrees/3-기능명 워크트리 생성
+      ↓
+2. cd .claude/worktrees/3-기능명 에서 코드 작업
+      ↓
+3. /com
+      ↓
+   feat: 기능 구현 (#3) 커밋
+      ↓
+4. /pr → git worktree remove 로 정리
 ```
 
 ---
@@ -76,7 +95,46 @@ URL: https://github.com/owner/repo/issues/3
 
 ---
 
-### 2. `/com` - 커밋
+### 2. `/worktree` - 워크트리 작업 시작
+
+이슈를 생성하고 **격리된 워크트리 디렉토리**에서 작업을 시작합니다. 기존 브랜치 작업을 중단하지 않고 새 작업을 병렬로 진행할 때 사용합니다.
+
+**사용법:**
+```bash
+/freegrow-git:wt 새 기능 병렬 개발
+/freegrow-git:wt 긴급 버그 수정          # → [FIX] 자동 판단
+/freegrow-git:wt [FEAT] 결제 모듈 추가   # → 타입 직접 지정
+```
+
+**결과:**
+```
+✅ 워크트리 작업 시작 완료!
+
+이슈: #3 [FEAT] 사용자 인증 기능
+URL: https://github.com/owner/repo/issues/3
+
+브랜치: feature/3-user-auth
+워크트리: .claude/worktrees/3-user-auth
+
+📁 이동 방법:
+  cd .claude/worktrees/3-user-auth
+
+🧹 작업 완료 후 정리:
+  git worktree remove .claude/worktrees/3-user-auth
+  git branch -d feature/3-user-auth
+```
+
+**start vs worktree:**
+
+| 항목 | `/start` | `/worktree` |
+|------|----------|-------|
+| 작업 위치 | 현재 repo (브랜치 전환) | 격리된 디렉토리 |
+| 병렬 작업 | 불가 | 가능 |
+| 정리 필요 | 없음 | `git worktree remove` 필요 |
+
+---
+
+### 3. `/com` - 커밋
 
 Freegrow 형식에 맞는 **상세한 커밋 메시지**를 자동 생성합니다.
 
@@ -137,7 +195,7 @@ feat: 바텀시트 실시간 UI 업데이트 구현 (#10)
 
 ---
 
-### 3. `/pr` - PR 생성
+### 4. `/pr` - PR 생성
 
 Freegrow 템플릿에 맞는 PR을 생성합니다. Development Log는 커밋 히스토리를 분석하여 자동 생성됩니다.
 
