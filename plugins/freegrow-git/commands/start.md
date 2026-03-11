@@ -26,6 +26,7 @@ git pull origin develop
 **자동 판단 규칙:**
 | 키워드 | 판단 타입 |
 |--------|----------|
+| `release`, `릴리즈`, `릴리스`, `배포`, `버전` | `[RELEASE]` |
 | `fix`, `bug`, `수정`, `버그`, `오류`, `에러` | `[FIX]` |
 | `docs`, `readme`, `문서`, `doc` | `[DOCS]` |
 | `refactor`, `리팩`, `개선`, `정리` | `[REFACTOR]` |
@@ -62,8 +63,27 @@ gh issue list --limit 1 --json number --jq '.[0].number'
 
 ### 5. 브랜치 이름 생성
 
-이슈 제목에서 브랜치 설명을 추출합니다:
+이슈 제목에서 브랜치 설명을 추출합니다. **Git Flow 전략에 따라 타입별로 브랜치 prefix가 결정됩니다:**
+
+#### Git Flow 브랜치 전략
+
+```
+main ──────────────────────────────────────── (프로덕션 릴리즈)
+  │
+develop ────────────────────────────────────── (통합 개발)
+  │              │
+feature/*    release/*    hotfix/*
+(기능 개발)  (릴리즈 준비)  (긴급 수정)
+```
+
+| 타입 | 브랜치 prefix | 설명 |
+|------|-------------|------|
+| `[RELEASE]` | `release/` | 릴리즈 준비 브랜치 (develop → main) |
+| 그 외 모든 타입 | `feature/` | 기능/수정 브랜치 (develop → develop) |
+
+예시:
 - `[FEAT] 사용자 인증 기능` → `feature/3-user-auth`
+- `[RELEASE] v1.2.0` → `release/3-v1-2-0`
 
 규칙:
 - 소문자 변환
@@ -74,6 +94,10 @@ gh issue list --limit 1 --json number --jq '.[0].number'
 ### 6. 브랜치 생성 및 체크아웃
 
 ```bash
+# [RELEASE] 타입인 경우
+git checkout -b release/이슈번호-설명
+
+# 그 외 타입인 경우
 git checkout -b feature/이슈번호-설명
 ```
 
@@ -101,6 +125,8 @@ URL: https://github.com/owner/repo/issues/3
 /freegrow-git:start 로그인 버그 수정          # → [FIX] 로그인 버그 수정 (버그 키워드)
 /freegrow-git:start README 문서 업데이트      # → [DOCS] README 문서 업데이트 (문서 키워드)
 /freegrow-git:start [FEAT] 사용자 인증        # → [FEAT] 사용자 인증 (명시적 타입)
+/freegrow-git:start v1.2.0 릴리즈             # → [RELEASE] v1.2.0 릴리즈 (릴리즈 키워드)
+/freegrow-git:start [RELEASE] v1.2.0          # → [RELEASE] v1.2.0 (명시적 타입)
 ```
 
 ## 자동 변환 규칙
@@ -111,9 +137,12 @@ URL: https://github.com/owner/repo/issues/3
 | `로그인 버그 수정` | `[FIX] 로그인 버그 수정` | `feature/3-login-bug-fix` |
 | `README 문서 업데이트` | `[DOCS] README 문서 업데이트` | `feature/3-readme-docs` |
 | `[FEAT] 사용자 인증` | `[FEAT] 사용자 인증` | `feature/3-user-auth` |
+| `v1.2.0 릴리즈` | `[RELEASE] v1.2.0 릴리즈` | `release/3-v1-2-0` |
+| `[RELEASE] v1.2.0` | `[RELEASE] v1.2.0` | `release/3-v1-2-0` |
 
 ## 주의사항
 
+- **Git Flow 전략 준수**: `feature/*` 브랜치는 `develop`에서 시작하고, `release/*` 브랜치는 릴리즈 준비 후 `main`으로 머지
 - develop 브랜치에서 시작
 - Assignee 자동 설정: 현재 로그인된 사용자 (`@me`)
 - 이슈 생성 실패 시 브랜치 생성 안함
