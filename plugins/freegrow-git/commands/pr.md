@@ -20,13 +20,23 @@ git log develop..HEAD --oneline
 git diff develop..HEAD --stat
 ```
 
-### 2. 이슈 번호 추출
+### 2. 브랜치 타입 판별
+
+현재 브랜치 이름을 분석하여 PR 전략을 결정합니다:
+
+| 브랜치 패턴 | PR 대상 | 설명 |
+|------------|---------|------|
+| `feature/*` | `develop` | 기능 브랜치 → develop (단일 PR) |
+| `release/*` | `main` + `develop` | 릴리즈 브랜치 → **두 개의 PR 생성** |
+
+### 3. 이슈 번호 추출
 
 브랜치 이름에서 이슈 번호를 추출합니다:
 - `feature/3-user-auth` → 이슈 번호: `3`
+- `release/5-v1-2-0` → 이슈 번호: `5`
 - 추출 실패 시 사용자에게 입력 요청
 
-### 3. PR 타입 결정
+### 4. PR 타입 결정
 
 커밋 히스토리를 분석하여 주요 타입을 결정합니다:
 
@@ -38,8 +48,9 @@ git diff develop..HEAD --stat
 | 리팩토링 | `[REFACTOR] 대상` |
 | 설정 | `[CHORE] 변경 내용` |
 | 테스트 | `[TEST] 테스트 대상` |
+| 릴리즈 | `[RELEASE] 버전` |
 
-### 4. Development Log 자동 생성
+### 5. Development Log 자동 생성
 
 커밋 히스토리와 변경 파일을 분석하여 개발 로그를 자동 생성합니다:
 
@@ -66,7 +77,7 @@ git diff develop..HEAD --name-only
 {커밋 메시지와 변경 내용을 바탕으로 작성한 간결한 요약}
 ```
 
-### 5. 리뷰 포인트 자동 추출
+### 6. 리뷰 포인트 자동 추출
 
 커밋 메시지에서 `🔍 리뷰 포인트:` 섹션을 자동으로 추출하여 PR에 집계합니다:
 
@@ -88,7 +99,7 @@ git log develop..HEAD --pretty=format:"%B" | grep -A 100 "🔍 리뷰 포인트:
 | 🛡️ 예외 처리 | null, 예외, 에러, 엣지 케이스 |
 | 📌 기타 | 위 카테고리에 해당하지 않는 항목 |
 
-### 6. PR 본문 생성
+### 7. PR 본문 생성
 
 Freegrow 템플릿 형식으로 본문을 작성합니다:
 
@@ -152,14 +163,16 @@ Freegrow 템플릿 형식으로 본문을 작성합니다:
   - 조건문/분기 로직 변경
   - public API 시그니처 변경
 
-### 7. 푸시 확인
+### 8. 푸시 확인
 
 푸시되지 않은 커밋이 있으면 먼저 푸시합니다:
 ```bash
 git push -u origin $(git branch --show-current)
 ```
 
-### 8. PR 생성
+### 9. PR 생성
+
+#### A. feature 브랜치인 경우 (단일 PR)
 
 ```bash
 gh pr create \
@@ -169,8 +182,54 @@ gh pr create \
   --assignee @me
 ```
 
-### 9. 결과 출력
+#### B. release 브랜치인 경우 (이중 PR)
 
+**release 브랜치에서는 main과 develop에 각각 PR을 생성합니다.**
+
+```
+release/5-v1-2-0
+  ├── PR #1 → main    (프로덕션 릴리즈)
+  └── PR #2 → develop (develop 동기화)
+```
+
+**PR #1: main으로 머지 (릴리즈 배포)**
+```bash
+gh pr create \
+  --base main \
+  --title "[RELEASE] 버전명" \
+  --body "PR 본문 (close #이슈번호 포함)" \
+  --assignee @me
+```
+
+**PR #2: develop으로 머지 (동기화)**
+```bash
+gh pr create \
+  --base develop \
+  --title "[RELEASE] 버전명 (develop 동기화)" \
+  --body "PR 본문 (close 이슈 제외, 동기화 목적 명시)" \
+  --assignee @me
+```
+
+**develop 동기화 PR 본문 형식:**
+```markdown
+## 📋 Summary
+release 브랜치의 변경사항을 develop에 동기화합니다.
+
+## 📣 Related Issue
+- ref #이슈번호
+
+> ⚠️ 이 PR은 release → develop 동기화 목적입니다.
+> 이슈 클로즈는 main PR에서 처리됩니다.
+
+---
+
+## 🔗 관련 PR
+- main PR: #PR번호
+```
+
+### 10. 결과 출력
+
+#### feature 브랜치
 ```
 ✅ PR 생성 완료!
 
@@ -179,6 +238,21 @@ URL: https://github.com/owner/repo/pull/5
 
 연결된 이슈: #3
 브랜치: feature/3-user-auth → develop
+```
+
+#### release 브랜치
+```
+✅ PR 생성 완료! (2개)
+
+PR #1 (main): [RELEASE] v1.2.0
+URL: https://github.com/owner/repo/pull/6
+브랜치: release/5-v1-2-0 → main
+
+PR #2 (develop 동기화): [RELEASE] v1.2.0 (develop 동기화)
+URL: https://github.com/owner/repo/pull/7
+브랜치: release/5-v1-2-0 → develop
+
+연결된 이슈: #5 (main PR에서 close)
 ```
 
 ## 사용 예시
@@ -190,7 +264,9 @@ URL: https://github.com/owner/repo/pull/5
 
 ## 주의사항
 
-- 기본 브랜치는 `develop`
+- feature 브랜치의 기본 대상은 `develop`
+- release 브랜치는 `main` + `develop` 두 개의 PR 생성
+- release → develop PR에서는 `close #` 대신 `ref #` 사용 (이슈 중복 클로즈 방지)
 - Assignee 자동 설정: 현재 로그인된 사용자 (`@me`)
 - Development Log는 커밋 분석으로 자동 생성
 - 리뷰어 주의사항은 커밋의 리뷰 포인트 + diff 분석으로 자동 생성

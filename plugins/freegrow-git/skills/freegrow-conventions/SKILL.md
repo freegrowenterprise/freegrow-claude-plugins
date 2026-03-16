@@ -194,6 +194,17 @@ feature/이슈번호-간단한-설명
 2. `git diff develop..HEAD --stat` 분석하여 변경 파일 목록 추출
 3. 커밋 메시지와 변경 내용을 바탕으로 작업 요약 작성
 
+### release 브랜치 PR 규칙
+
+`release/*` 브랜치에서 PR 생성 시 **두 개의 PR**을 생성합니다:
+
+| PR | 대상 브랜치 | 이슈 처리 | 용도 |
+|----|-----------|----------|------|
+| PR #1 | `main` | `close #이슈번호` | 프로덕션 릴리즈 |
+| PR #2 | `develop` | `ref #이슈번호` | develop 동기화 |
+
+- develop PR에서는 `close` 대신 `ref`를 사용하여 이슈 중복 클로즈 방지
+
 ## GitHub 규칙
 
 - **Assignee**: 현재 로그인된 사용자 (`@me`)

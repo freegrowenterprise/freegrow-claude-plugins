@@ -48,6 +48,7 @@
 - **Assignee**: `@me` (현재 로그인된 사용자)
 - **기본 브랜치**: `develop`
 - **PR 로그 파일 포함**: `.claude/pr-logger/session-log-*.md`
+- **release 브랜치**: `main` + `develop` 두 개의 PR 생성
 
 ## 커맨드 (선택)
 
